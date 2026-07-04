@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Maps Tailwind color utilities (bg-bg-primary, text-text-primary, v.v.) to standard CSS variables */
+  --color-bg-primary: var(--theme-bg-primary);
+  --color-bg-surface: var(--theme-bg-surface);
+  --color-accent-cyan: var(--theme-accent-cyan);
+  --color-accent-orange: var(--theme-accent-orange);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-muted: var(--theme-text-muted);
+  --color-card-cta: var(--theme-card-cta);
+  --color-glass-bg: var(--theme-glass-bg);
+  --color-border-subtle: var(--theme-border-subtle);
+  --color-text-cta-hover: var(--theme-text-cta-hover);
+
+  /* Fonts */
+  --font-heading: var(--font-plus-jakarta);
+  --font-body: var(--font-inter);
+
+  /* Z-Index Hierarchy */
+  --z-bg: 0;
+  --z-glow: 10;
+  --z-text: 20;
+  --z-cards: 30;
+  --z-header: 40;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Light Mode explicitly defined */
+:root,
+html.light {
+  --theme-bg-primary: #f7f8fa;
+  --theme-bg-surface: #ffffff;
+  --theme-accent-cyan: #0891b2;
+  --theme-accent-orange: #ea580c;
+  --theme-text-primary: #0f1420;
+  --theme-text-muted: #64748b;
+  --theme-card-cta: #0f1420;
+  --theme-glass-bg: rgba(15, 20, 32, 0.04);
+  --theme-border-subtle: rgba(15, 20, 32, 0.08);
+  --theme-text-cta-hover: #ffffff;
+}
+
+/* Dark Mode explicitly defined */
+html.dark {
+  --theme-bg-primary: #0b101d;
+  --theme-bg-surface: #0f1420;
+  --theme-accent-cyan: #00f0ff;
+  --theme-accent-orange: #ff5e3a;
+  --theme-text-primary: #ffffff;
+  --theme-text-muted: #94a3b8;
+  --theme-card-cta: #ffffff;
+  --theme-glass-bg: rgba(255, 255, 255, 0.04);
+  --theme-border-subtle: rgba(255, 255, 255, 0.1);
+  --theme-text-cta-hover: #0f1420;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   SIGNATURE EFFECT — Cyan Glow Breathing
+   6s cycle per DESIGN.md
+   ======================================== */
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-accent-cyan) 30%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 35px color-mix(in srgb, var(--color-accent-cyan) 50%, transparent),
+      0 0 70px color-mix(in srgb, var(--color-accent-cyan) 25%, transparent);
+  }
+}
+
+.glow-breathe {
+  animation: glow-breathe 6s ease-in-out infinite;
+}
+
+/* ========================================
+   ACCESSIBILITY — Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .glow-breathe {
+    animation: none;
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-accent-cyan) 30%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent);
+  }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }
