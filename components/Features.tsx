@@ -13,11 +13,11 @@ const features = [
     accent: "accent-cyan" as const,
     icon: (
       <svg
-        className="h-6 w-6"
+        className="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        strokeWidth={1.5}
+        strokeWidth={1}
       >
         <path
           strokeLinecap="round"
@@ -34,11 +34,11 @@ const features = [
     accent: "accent-orange" as const,
     icon: (
       <svg
-        className="h-6 w-6"
+        className="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        strokeWidth={1.5}
+        strokeWidth={1}
       >
         <path
           strokeLinecap="round"
@@ -57,11 +57,11 @@ const features = [
     accent: "accent-cyan" as const,
     icon: (
       <svg
-        className="h-6 w-6"
+        className="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        strokeWidth={1.5}
+        strokeWidth={1}
       >
         <path
           strokeLinecap="round"
@@ -78,11 +78,11 @@ const features = [
     accent: "accent-orange" as const,
     icon: (
       <svg
-        className="h-6 w-6"
+        className="h-8 w-8"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        strokeWidth={1.5}
+        strokeWidth={1}
       >
         <path
           strokeLinecap="round"
@@ -145,7 +145,7 @@ export default function Features() {
 
         {/* Feature Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-6"
+          className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -155,49 +155,56 @@ export default function Features() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              className="group relative overflow-hidden border border-border-subtle bg-bg-surface transition-transform duration-200 ease-out"
-              style={{ borderRadius: "12px", zIndex: 30 }}
+              className={`group relative overflow-hidden bg-bg-surface transition-transform duration-200 ease-out border-b border-border-subtle pb-4 ${
+                idx === 0
+                  ? "md:col-span-7"
+                  : idx === 1
+                    ? "md:col-span-5"
+                    : idx === 2
+                      ? "md:col-span-5"
+                      : "md:col-span-7"
+              }`}
+              style={{ zIndex: 30 }}
             >
               {feature.image && (
-                <div className="relative h-48 w-full overflow-hidden md:h-56">
+                <div
+                  className="relative h-56 w-full overflow-hidden md:h-72"
+                  style={{ borderRadius: "12px" }}
+                >
                   <Image
                     src={feature.image}
                     alt={feature.imageAlt || feature.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-surface via-bg-surface/10 to-transparent border-0" />
                 </div>
               )}
 
-              <div className={`p-6 md:p-8 ${feature.image ? "" : "pt-8"}`}>
+              <div
+                className={`p-4 md:p-6 ${feature.image ? "" : "pt-6 md:pt-8"}`}
+              >
                 <div
-                  className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${
+                  className={`mb-5 inline-flex items-center justify-center ${
                     feature.accent === "accent-cyan"
-                      ? "bg-accent-cyan/10 text-accent-cyan"
-                      : "bg-accent-orange/10 text-accent-orange"
+                      ? "text-accent-cyan"
+                      : "text-accent-orange"
                   }`}
+                  style={{
+                    filter: `drop-shadow(0 0 10px var(--color-${feature.accent}))`,
+                  }}
                 >
                   {feature.icon}
                 </div>
 
-                <h3 className="mb-3 font-heading text-xl font-bold text-text-primary">
+                <h3 className="mb-3 font-heading text-xl font-bold text-text-primary md:text-2xl">
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-muted">
+                <p className="text-sm leading-relaxed text-text-muted md:text-base">
                   {feature.description}
                 </p>
               </div>
-
-              {/* Accent line at top */}
-              <div
-                className={`absolute left-0 top-0 h-[2px] w-full ${
-                  feature.accent === "accent-cyan"
-                    ? "bg-accent-cyan"
-                    : "bg-accent-orange"
-                } opacity-0 transition-opacity duration-200 group-hover:opacity-100`}
-              />
             </motion.div>
           ))}
         </motion.div>
