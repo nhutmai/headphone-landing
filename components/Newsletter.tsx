@@ -41,7 +41,7 @@ export default function Newsletter() {
         className="absolute left-0 right-0 top-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(0,240,255,0.3), rgba(255,94,58,0.3), transparent)",
+            "linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent-cyan) 30%, transparent), color-mix(in srgb, var(--color-accent-orange) 30%, transparent), transparent)",
         }}
       />
 
@@ -87,7 +87,7 @@ export default function Newsletter() {
             <button
               type="submit"
               disabled={state === "loading"}
-              className="relative inline-flex items-center justify-center bg-card-cta font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-black disabled:cursor-not-allowed disabled:opacity-70 sm:rounded-l-none sm:rounded-r-lg rounded-lg"
+              className="relative inline-flex items-center justify-center bg-card-cta font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-text-cta-hover disabled:cursor-not-allowed disabled:opacity-70 sm:rounded-l-none sm:rounded-r-lg rounded-lg"
               style={{ borderRadius: undefined, padding: "14px 28px" }}
             >
               {state === "loading" ? (

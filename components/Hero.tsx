@@ -15,7 +15,7 @@ export default function Hero() {
         style={{
           zIndex: 0,
           background:
-            "radial-gradient(ellipse 70% 60% at 65% 35%, rgba(0, 240, 255, 0.05) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 85% 25%, rgba(255, 94, 58, 0.03) 0%, transparent 60%)",
+            "radial-gradient(ellipse 70% 60% at 65% 35%, color-mix(in srgb, var(--color-accent-cyan) 5%, transparent) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 85% 25%, color-mix(in srgb, var(--color-accent-orange) 3%, transparent) 0%, transparent 60%)",
         }}
       />
 
@@ -28,7 +28,7 @@ export default function Hero() {
           width: "60vw",
           height: "70vh",
           background:
-            "radial-gradient(ellipse 60% 50% at 70% 30%, rgba(0, 240, 255, 0.12) 0%, rgba(0, 240, 255, 0.04) 40%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 70% 30%, color-mix(in srgb, var(--color-accent-cyan) 12%, transparent) 0%, color-mix(in srgb, var(--color-accent-cyan) 4%, transparent) 40%, transparent 70%)",
           filter: "blur(80px)",
           pointerEvents: "none",
         }}
@@ -91,7 +91,7 @@ export default function Hero() {
                   width: "50%",
                   height: "45%",
                   background:
-                    "radial-gradient(ellipse at 80% 20%, rgba(0, 240, 255, 0.35) 0%, rgba(0, 240, 255, 0.08) 50%, transparent 80%)",
+                    "radial-gradient(ellipse at 80% 20%, color-mix(in srgb, var(--color-accent-cyan) 35%, transparent) 0%, color-mix(in srgb, var(--color-accent-cyan) 8%, transparent) 50%, transparent 80%)",
                   filter: "blur(30px)",
                   pointerEvents: "none",
                   zIndex: -1,
@@ -149,7 +149,7 @@ export default function Hero() {
               </div>
               <a
                 href="#newsletter"
-                className="ml-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-bg-primary text-card-cta transition-colors duration-200 hover:bg-accent-cyan hover:text-black"
+                className="ml-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-bg-primary text-card-cta transition-colors duration-200 hover:bg-accent-cyan hover:text-text-cta-hover"
                 aria-label="Trải nghiệm ngay"
               >
                 <svg
@@ -171,7 +171,7 @@ export default function Hero() {
               className="border border-border-subtle px-6 py-5 md:px-8 md:py-6"
               style={{
                 borderRadius: "12px",
-                background: "rgba(255, 255, 255, 0.04)",
+                background: "var(--color-glass-bg)",
                 backdropFilter: "blur(16px)",
                 WebkitBackdropFilter: "blur(16px)",
               }}

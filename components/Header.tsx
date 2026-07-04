@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { label: "Tính năng", href: "#features" },
@@ -12,11 +13,17 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-[40] border-b border-border-subtle"
-      style={{ backgroundColor: "rgba(11, 16, 29, 0.92)" }}
+      style={{ backgroundColor: "color-mix(in srgb, var(--color-bg-primary) 92%, transparent)" }}
     >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-10">
         {/* Logo */}
@@ -41,9 +48,26 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-text-muted transition-colors hover:bg-bg-surface hover:text-accent-cyan"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
+          )}
           <a
             href="#newsletter"
-            className="rounded-lg bg-card-cta px-7 py-3.5 text-sm font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-black"
+            className="rounded-lg bg-card-cta px-7 py-3.5 text-sm font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-text-cta-hover"
             style={{ borderRadius: "8px", padding: "14px 28px" }}
           >
             Trải nghiệm ngay
@@ -96,10 +120,30 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
+              {mounted && (
+                <div className="flex items-center justify-between mt-2">
+                  <span className="text-sm font-medium text-text-muted">Giao diện</span>
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-bg-surface text-text-muted transition-colors hover:text-accent-cyan"
+                    aria-label="Toggle theme"
+                  >
+                    {theme === "dark" ? (
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                      </svg>
+                    ) : (
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+              )}
               <a
                 href="#newsletter"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 inline-block rounded-lg bg-card-cta text-center text-sm font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-black"
+                className="mt-2 inline-block rounded-lg bg-card-cta text-center text-sm font-semibold text-bg-primary transition-all duration-200 hover:bg-accent-cyan hover:text-text-cta-hover"
                 style={{ borderRadius: "8px", padding: "14px 28px" }}
               >
                 Trải nghiệm ngay

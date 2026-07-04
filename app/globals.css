@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Colors */
-  --color-bg-primary: #0b101d;
-  --color-bg-surface: #0f1420;
-  --color-accent-cyan: #00f0ff;
-  --color-accent-orange: #ff5e3a;
-  --color-text-primary: #ffffff;
-  --color-text-muted: #94a3b8;
-  --color-card-cta: #ffffff;
-  --color-glass-bg: rgba(255, 255, 255, 0.04);
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  /* Maps Tailwind color utilities (bg-bg-primary, text-text-primary, v.v.) to standard CSS variables */
+  --color-bg-primary: var(--theme-bg-primary);
+  --color-bg-surface: var(--theme-bg-surface);
+  --color-accent-cyan: var(--theme-accent-cyan);
+  --color-accent-orange: var(--theme-accent-orange);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-muted: var(--theme-text-muted);
+  --color-card-cta: var(--theme-card-cta);
+  --color-glass-bg: var(--theme-glass-bg);
+  --color-border-subtle: var(--theme-border-subtle);
+  --color-text-cta-hover: var(--theme-text-cta-hover);
 
   /* Fonts */
   --font-heading: var(--font-plus-jakarta);
@@ -24,12 +25,42 @@
   --z-header: 40;
 }
 
+/* Light Mode explicitly defined */
+:root,
+html.light {
+  --theme-bg-primary: #f7f8fa;
+  --theme-bg-surface: #ffffff;
+  --theme-accent-cyan: #0891b2;
+  --theme-accent-orange: #ea580c;
+  --theme-text-primary: #0f1420;
+  --theme-text-muted: #64748b;
+  --theme-card-cta: #0f1420;
+  --theme-glass-bg: rgba(15, 20, 32, 0.04);
+  --theme-border-subtle: rgba(15, 20, 32, 0.08);
+  --theme-text-cta-hover: #ffffff;
+}
+
+/* Dark Mode explicitly defined */
+html.dark {
+  --theme-bg-primary: #0b101d;
+  --theme-bg-surface: #0f1420;
+  --theme-accent-cyan: #00f0ff;
+  --theme-accent-orange: #ff5e3a;
+  --theme-text-primary: #ffffff;
+  --theme-text-muted: #94a3b8;
+  --theme-card-cta: #ffffff;
+  --theme-glass-bg: rgba(255, 255, 255, 0.04);
+  --theme-border-subtle: rgba(255, 255, 255, 0.1);
+  --theme-text-cta-hover: #0f1420;
+}
+
 /* ========================================
    BASE STYLES
    ======================================== */
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body {
@@ -49,13 +80,13 @@ body {
   0%,
   100% {
     box-shadow:
-      0 0 20px rgba(0, 240, 255, 0.3),
-      0 0 40px rgba(0, 240, 255, 0.15);
+      0 0 20px color-mix(in srgb, var(--color-accent-cyan) 30%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent);
   }
   50% {
     box-shadow:
-      0 0 35px rgba(0, 240, 255, 0.5),
-      0 0 70px rgba(0, 240, 255, 0.25);
+      0 0 35px color-mix(in srgb, var(--color-accent-cyan) 50%, transparent),
+      0 0 70px color-mix(in srgb, var(--color-accent-cyan) 25%, transparent);
   }
 }
 
@@ -79,8 +110,8 @@ body {
   .glow-breathe {
     animation: none;
     box-shadow:
-      0 0 20px rgba(0, 240, 255, 0.3),
-      0 0 40px rgba(0, 240, 255, 0.15);
+      0 0 20px color-mix(in srgb, var(--color-accent-cyan) 30%, transparent),
+      0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent);
   }
 }
 

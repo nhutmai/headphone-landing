@@ -12,8 +12,18 @@ const features = [
     imageAlt: "Người dùng đeo tai nghe HeliCorp trong quán café",
     accent: "accent-cyan" as const,
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.143 17.082a24.248 24.248 0 005.714 0M12 3c-4.97 0-9 4.03-9 9a8.96 8.96 0 002.636 6.364M12 3c4.97 0 9 4.03 9 9a8.96 8.96 0 01-2.636 6.364M12 3v0M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.143 17.082a24.248 24.248 0 005.714 0M12 3c-4.97 0-9 4.03-9 9a8.96 8.96 0 002.636 6.364M12 3c4.97 0 9 4.03 9 9a8.96 8.96 0 01-2.636 6.364M12 3v0M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+        />
       </svg>
     ),
   },
@@ -23,8 +33,18 @@ const features = [
       "Màng loa 40mm tinh chỉnh chuyên sâu tái tạo chuẩn xác từng dải âm. Bạn sẽ nghe rõ từng nhịp thở của ca sĩ và chi tiết nhạc cụ trong bài hát yêu thích.",
     accent: "accent-orange" as const,
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+        />
       </svg>
     ),
   },
@@ -36,8 +56,18 @@ const features = [
     imageAlt: "Người dùng đeo tai nghe HeliCorp trên tàu điện",
     accent: "accent-cyan" as const,
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+        />
       </svg>
     ),
   },
@@ -47,8 +77,18 @@ const features = [
       "Trọng lượng siêu nhẹ kết hợp cùng đệm tai bọc da protein cao cấp tựa như không đeo. Cho phép bạn tận hưởng âm nhạc suốt cả ngày dài mà không hề đau hay bí tai.",
     accent: "accent-orange" as const,
     icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25"
+        />
       </svg>
     ),
   },
@@ -98,8 +138,8 @@ export default function Features() {
             Tính năng nổi bật
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-text-muted">
-            Được thiết kế với công nghệ tiên tiến nhất, mang đến trải nghiệm âm thanh
-            hoàn hảo trong mọi hoàn cảnh.
+            Được thiết kế với công nghệ tiên tiến nhất, mang đến trải nghiệm âm
+            thanh hoàn hảo trong mọi hoàn cảnh.
           </p>
         </motion.div>
 
@@ -115,10 +155,9 @@ export default function Features() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              className="group relative overflow-hidden border border-border-subtle bg-bg-surface transition-transform duration-200 ease-out hover:-translate-y-1"
+              className="group relative overflow-hidden border border-border-subtle bg-bg-surface transition-transform duration-200 ease-out"
               style={{ borderRadius: "12px", zIndex: 30 }}
             >
-              {/* Card Image (if available) */}
               {feature.image && (
                 <div className="relative h-48 w-full overflow-hidden md:h-56">
                   <Image
@@ -128,13 +167,11 @@ export default function Features() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-surface via-bg-surface/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-surface via-bg-surface/10 to-transparent border-0" />
                 </div>
               )}
 
-              {/* Card Content */}
               <div className={`p-6 md:p-8 ${feature.image ? "" : "pt-8"}`}>
-                {/* Icon */}
                 <div
                   className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg ${
                     feature.accent === "accent-cyan"
