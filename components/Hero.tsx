@@ -33,46 +33,37 @@ export default function Hero() {
           pointerEvents: "none",
         }}
       />
-
-      {/* ============================================
-          Main content wrapper
-          ============================================ */}
       <div className="relative mx-auto flex min-h-[calc(100vh-80px)] w-full max-w-[1280px] flex-col px-6 md:px-10">
-        {/* ============================================
-            Top row
-            ============================================ */}
-        <div className="flex flex-1 flex-col justify-center pb-40 pt-12 md:pb-48 md:pt-16">
-          <div className="flex w-full flex-col-reverse items-center gap-6 md:flex-row md:items-start md:gap-0">
-            {/* ---- Left column: Text (z-20) ---- */}
+        <div className="flex flex-1 flex-col justify-center pb-12 pt-12 md:pb-16 md:pt-16">
+          <div className="flex w-full flex-col-reverse items-center gap-10 lg:flex-row lg:items-center lg:gap-0 lg:justify-between">
             <motion.div
-              className="relative flex-1 md:max-w-[55%]"
+              className="relative flex-1 w-full lg:max-w-[50%]"
               style={{ zIndex: 20 }}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" as const }}
             >
-              {/* Fix #2: Slide counter "01 / 04" thay pill badge */}
               <div className="mb-6 flex items-baseline gap-1 font-mono text-sm tracking-wider">
                 <span className="text-2xl font-bold text-accent-cyan">01</span>
                 <span className="text-text-muted">/04</span>
               </div>
 
               <h1
-                className="font-heading font-extrabold leading-[1.08] tracking-tight text-text-primary"
+                className="font-heading font-extrabold leading-[1.08] tracking-tight text-text-primary text-center lg:text-left"
                 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
               >
-                Thế giới tĩnh lặng. <br className="hidden md:block" />
+                Thế giới tĩnh lặng. <br className="hidden lg:block" />
                 <span className="text-accent-cyan">Âm thanh nguyên bản.</span>
               </h1>
 
-              <p className="mt-6 max-w-md text-base leading-7 text-text-muted md:text-lg md:leading-8">
+              <p className="mt-6 mx-auto lg:mx-0 max-w-md text-base leading-7 text-text-muted text-center lg:text-left md:text-lg md:leading-8">
                 Công nghệ chống ồn chủ động ANC thế hệ mới giúp bạn cô lập mọi
                 tạp âm, mang lại sự tập trung tuyệt đối cho công việc và trải
                 nghiệm âm nhạc ở bất kỳ đâu.
               </p>
             </motion.div>
             <motion.div
-              className="relative flex-1 md:absolute md:right-[-4%] md:top-[5%]"
+              className="relative flex-1 lg:absolute lg:right-[-4%] lg:top-[5%]"
               style={{ zIndex: 20 }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -99,9 +90,8 @@ export default function Hero() {
               />
 
               <div
-                className="relative mx-auto h-[300px] w-[320px] md:h-[520px] md:w-[540px]"
+                className="relative mx-auto h-[320px] w-[340px] md:h-[460px] md:w-[480px] lg:h-[520px] lg:w-[540px]"
                 style={{
-                  /* Crop nhẹ — ảnh tràn ra bên phải */
                   clipPath: "inset(0 -8% 0 0)",
                 }}
               >
@@ -109,6 +99,7 @@ export default function Hero() {
                   src="/images/hero2.jpg"
                   alt="HeliCorp ANC Headphone — tai nghe chống ồn chủ động"
                   fill
+                  quality={100}
                   sizes="(max-width: 768px) 320px, 540px"
                   className="object-cover object-center"
                   style={{ borderRadius: "16px 4px 4px 16px" }}
@@ -119,15 +110,15 @@ export default function Hero() {
           </div>
         </div>
         <motion.div
-          className="absolute bottom-0 left-0 right-0 px-6 md:px-10"
+          className="mt-auto w-full pb-6 md:pb-10"
           style={{ zIndex: 30 }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" as const }}
         >
-          <div className="mx-auto flex max-w-[1280px] flex-col gap-4 pb-6 sm:flex-row sm:items-end sm:justify-between md:pb-10">
+          <div className="mx-auto flex w-full flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div
-              className="flex items-center gap-5 bg-card-cta px-6 py-5 shadow-2xl md:px-8 md:py-6"
+              className="flex items-center gap-4 bg-card-cta px-5 py-5 shadow-2xl sm:gap-5 md:px-8 md:py-6"
               style={{ borderRadius: "12px" }}
             >
               <div className="relative hidden h-16 w-16 shrink-0 overflow-hidden rounded-lg sm:block">
@@ -139,17 +130,17 @@ export default function Hero() {
                   className="object-cover"
                 />
               </div>
-              <div>
-                <p className="text-sm font-bold text-bg-primary md:text-base">
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-bold text-bg-primary md:text-base truncate">
                   Trải nghiệm ngay
                 </p>
                 <p className="mt-0.5 text-xs text-bg-primary/60">
-                  Ưu đãi giảm 15% cho đơn hàng đầu tiên
+                  Ưu đãi giảm 15% cho đơn hàng đầu
                 </p>
               </div>
               <a
                 href="#newsletter"
-                className="ml-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-bg-primary text-card-cta transition-colors duration-200 hover:bg-accent-cyan hover:text-text-cta-hover"
+                className="ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg-primary text-card-cta transition-colors duration-200 hover:bg-accent-cyan hover:text-text-cta-hover sm:ml-4 sm:h-11 sm:w-11"
                 aria-label="Trải nghiệm ngay"
               >
                 <svg
@@ -168,7 +159,7 @@ export default function Hero() {
               </a>
             </div>
             <div
-              className="border border-border-subtle px-6 py-5 md:px-8 md:py-6"
+              className="border border-border-subtle px-4 py-5 sm:px-6 md:px-8 md:py-6"
               style={{
                 borderRadius: "12px",
                 background: "var(--color-glass-bg)",
@@ -176,7 +167,7 @@ export default function Hero() {
                 WebkitBackdropFilter: "blur(16px)",
               }}
             >
-              <div className="flex items-center gap-6 md:gap-8">
+              <div className="flex items-center justify-between gap-3 sm:justify-start sm:gap-6 md:gap-8">
                 <div className="flex items-center gap-2">
                   <span className="text-xl font-bold text-accent-cyan font-heading md:text-2xl">
                     98%
