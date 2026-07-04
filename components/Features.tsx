@@ -175,6 +175,7 @@ export default function Features() {
                     src={feature.image}
                     alt={feature.imageAlt || feature.title}
                     fill
+                    loading="eager"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
