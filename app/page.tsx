@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Specs from "@/components/Specs";
 import Newsletter from "@/components/Newsletter";
+import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
           © 2026 HeliCorp. All rights reserved.
         </p>
       </footer>
+      <Chatbot />
     </>
   );
 }
